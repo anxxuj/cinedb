@@ -1,4 +1,4 @@
-module github.com/anxxuj/greenlight
+module github.com/anxxuj/cinedb
 
 go 1.23.3
 

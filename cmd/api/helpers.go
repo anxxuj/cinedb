@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/anxxuj/greenlight/internal/validator"
+	"github.com/anxxuj/cinedb/internal/validator"
 	"github.com/julienschmidt/httprouter"
 )
 

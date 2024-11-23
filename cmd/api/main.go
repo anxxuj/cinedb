@@ -10,7 +10,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/anxxuj/greenlight/internal/data"
+	"github.com/anxxuj/cinedb/internal/data"
 	_ "github.com/lib/pq"
 )
 

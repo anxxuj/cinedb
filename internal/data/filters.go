@@ -3,7 +3,7 @@ package data
 import (
 	"strings"
 
-	"github.com/anxxuj/greenlight/internal/validator"
+	"github.com/anxxuj/cinedb/internal/validator"
 )
 
 type Filters struct {
