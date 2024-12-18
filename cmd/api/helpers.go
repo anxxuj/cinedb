@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"net/http"
 	"strconv"
@@ -17,4 +18,26 @@ func (app *application) readIDParam(r *http.Request) (int64, error) {
 		return 0, errors.New("invalid id parameter")
 	}
 	return id, nil
+}
+
+// Helper for sending JSON responses. Method takes destination http.ResponseWriter,
+// HTTP status code to send, data to encode to JSON and header map for additional HTTP headers.
+func (app *application) writeJSON(w http.ResponseWriter, status int, data any, headers http.Header) error {
+	// Encode data to JSON
+	js, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		return err
+	}
+	js = append(js, '\n')
+
+	// Add provided headers to response
+	for key, value := range headers {
+		w.Header()[key] = value
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(status)
+	w.Write(js)
+
+	return nil
 }
